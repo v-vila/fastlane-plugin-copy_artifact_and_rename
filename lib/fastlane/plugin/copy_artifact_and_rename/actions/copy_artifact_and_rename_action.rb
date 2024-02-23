@@ -5,6 +5,8 @@ module Fastlane
   module Actions
     class CopyAndRenameArtifactsAction < Action
       def self.run(options)
+        require 'fastlane/actions/shared_values' # Add this require statement
+
         gradle(project_dir: 'android', task: options[:task], build_type: options[:build_type], flavor: options[:flavor] || nil)
         artifact_path = options[:build_type] == 'Debug' ? lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH] : lane_context[SharedValues::GRADLE_AAB_OUTPUT_PATH]
         default_dir_relative_to_workspace = 'dist/artifacts/mets'
@@ -30,6 +32,8 @@ module Fastlane
       end
 
       def self.available_options
+        require 'fastlane_core/config_item' # Add this require statement
+
         [
           FastlaneCore::ConfigItem.new(key: :app_name,
                                        description: "Name of the app",
