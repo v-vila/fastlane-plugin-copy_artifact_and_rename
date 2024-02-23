@@ -1,4 +1,4 @@
-require_relative '../fastlane/actions/copy_and_rename_artifacts'
+require_relative '/../lib/fastlane/plugin/copy_artifact_and_rename/actions/copy_artifact_and_rename_action.rb'
 
 RSpec.describe Fastlane::Actions::CopyAndRenameArtifactsAction do
   describe '#run' do
