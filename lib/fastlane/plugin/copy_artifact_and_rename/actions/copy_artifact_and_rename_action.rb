@@ -22,7 +22,7 @@ module Fastlane
       end
 
       def self.description
-        "Copy and rename artifacts"
+        "Copy and rename artifacts android"
       end
 
       def self.authors
